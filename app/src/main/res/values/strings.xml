@@ -7,4 +7,8 @@
     <string name="all_unlocked">All unlocked</string>
     <string name="all_locked">All locked</string>
     <string name="driver_unlocked">Driver unlocked</string>
+    <string name="lock">Lock</string>
+    <string name="unlock">Unlock</string>
+    <string name="lockx2">LockX2</string>
+    <string name="unlockx2">UnlockX2</string>
 </resources>

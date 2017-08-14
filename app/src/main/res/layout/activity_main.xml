@@ -84,16 +84,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:layout_marginRight="@dimen/d8"
-            android:text="Lock"/>
+            android:layout_marginEnd="@dimen/d8"
+            android:text="@string/lock"/>
 
         <Button
             android:id="@+id/btnUnLock_AM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:layout_marginLeft="@dimen/d8"
-            android:text="Unlock"/>
+            android:layout_marginStart="@dimen/d8"
+            android:text="@string/unlock"/>
 
     </LinearLayout>
 
@@ -109,16 +109,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:layout_marginRight="@dimen/d8"
-            android:text="LockX2"/>
+            android:layout_marginEnd="@dimen/d8"
+            android:text="@string/lockx2"/>
 
         <Button
             android:id="@+id/btnUnLockX2_AM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:layout_marginLeft="@dimen/d8"
-            android:text="UnlockX2"/>
+            android:layout_marginStart="@dimen/d8"
+            android:text="@string/unlockx2"/>
 
     </LinearLayout>
 
