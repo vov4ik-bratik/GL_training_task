@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FSM</string>
+    <string name="alarm_disarmed">Alarm disarmed</string>
+    <string name="alarm_armed">Alarm armed</string>
+    <string name="alarm_state">Alarm state:</string>
+    <string name="lock_state">Lock state:</string>
+    <string name="all_unlocked">All unlocked</string>
+    <string name="all_locked">All locked</string>
+    <string name="driver_unlocked">Driver unlocked</string>
+</resources>

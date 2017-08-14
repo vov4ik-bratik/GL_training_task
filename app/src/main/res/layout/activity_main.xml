@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="lessons.vs.petersonapps.fsm.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/d16"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/d8"
+            android:text="@string/alarm_state"
+            android:textSize="@dimen/s20" />
+
+        <TextView
+            android:id="@+id/tvAlarmState_AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/d8"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/s20" />
+
+        <ImageView
+            android:id="@+id/ivAlarmState_AM"
+            android:layout_width="@dimen/d42"
+            android:layout_height="@dimen/d42"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_alarm_off" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/d16"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="left"
+            android:padding="@dimen/d8"
+            android:text="@string/lock_state"
+            android:textSize="@dimen/s20" />
+
+        <TextView
+            android:id="@+id/tvLockState_AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/d8"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/s20" />
+
+        <ImageView
+            android:id="@+id/ivLockState_AM"
+            android:layout_width="@dimen/d42"
+            android:layout_height="@dimen/d42"
+            android:src="@drawable/ic_lock_open" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/d16"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnLock_AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginRight="@dimen/d8"
+            android:text="Lock"/>
+
+        <Button
+            android:id="@+id/btnUnLock_AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginLeft="@dimen/d8"
+            android:text="Unlock"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/d16"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnLockX2_AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginRight="@dimen/d8"
+            android:text="LockX2"/>
+
+        <Button
+            android:id="@+id/btnUnLockX2_AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginLeft="@dimen/d8"
+            android:text="UnlockX2"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
