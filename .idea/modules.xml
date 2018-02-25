@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FSM.iml" filepath="$PROJECT_DIR$/FSM.iml" />
+      <module fileurl="file://D:\IT\Android\LearnProjects\GL_training_task\FSM.iml" filepath="D:\IT\Android\LearnProjects\GL_training_task\FSM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GL_training_task.iml" filepath="$PROJECT_DIR$/GL_training_task.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

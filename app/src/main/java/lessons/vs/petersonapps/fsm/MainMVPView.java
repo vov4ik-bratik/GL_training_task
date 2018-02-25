@@ -6,13 +6,13 @@ package lessons.vs.petersonapps.fsm;
 
 public interface MainMVPView {
 
-    void onLockResult(boolean alarmArmed, int lockState);
+    void onStartApp(String state);
 
-    void onStart(boolean alarmArmed, int lockedState);
+    void onLockResult(String state);
 
-    void onUnLockResult(boolean alarmArmed, int lockedState);
+    void onUnLockResult(String state);
 
-    void onLockX2Result(boolean alarmArmed, int lockedState);
+    void onLockX2Result(String state);
 
-    void onUnLockX2Result(boolean alarmArmed, int lockedState);
+    void onUnLockX2Result(String state);
 }

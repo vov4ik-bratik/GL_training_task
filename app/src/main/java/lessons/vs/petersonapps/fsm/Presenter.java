@@ -1,40 +1,45 @@
 package lessons.vs.petersonapps.fsm;
 
 
+import lessons.vs.petersonapps.fsm.fsm.state.FSM;
+
 public class Presenter {
 
     private MainMVPView mainMVPView;
-    private FSM_Model model;
+    private FSM finiteStateMachine;
 
-    public Presenter(MainMVPView mainMVPView, FSM_Model model) {
+    public FSM getFiniteStateMachine() {
+        return finiteStateMachine;
+    }
+
+    public Presenter(MainMVPView mainMVPView, FSM finiteStateMachine) {
         this.mainMVPView = mainMVPView;
-        this.model = model;
+        this.finiteStateMachine = finiteStateMachine;
     }
 
 
     public void initialStart() {
-        model.setAlarmArmed(false);
-        model.setLockedState(1);
-        mainMVPView.onStart(model.isAlarmArmed(), model.getLockedState());
+        finiteStateMachine.setState(finiteStateMachine.getAlarmDisarmedAllUnlocked());
+        mainMVPView.onStartApp(finiteStateMachine.getState().toString());
     }
 
     public void lock() {
-        model.lock();
-        mainMVPView.onLockResult(model.isAlarmArmed(), model.getLockedState());
+        finiteStateMachine.lock();
+        mainMVPView.onLockResult(finiteStateMachine.getState().toString());
     }
 
     public void unlock() {
-        model.unlock();
-        mainMVPView.onUnLockResult(model.isAlarmArmed(), model.getLockedState());
+        finiteStateMachine.unlock();
+        mainMVPView.onUnLockResult(finiteStateMachine.getState().toString());
     }
 
     public void lockX2() {
-        model.lockX2();
-        mainMVPView.onLockX2Result(model.isAlarmArmed(), model.getLockedState());
+        finiteStateMachine.lockX2();
+        mainMVPView.onLockX2Result(finiteStateMachine.getState().toString());
     }
 
     public void unLockX2() {
-        model.unlockX2();
-        mainMVPView.onUnLockX2Result(model.isAlarmArmed(), model.getLockedState());
+        finiteStateMachine.unlockX2();
+        mainMVPView.onUnLockX2Result(finiteStateMachine.getState().toString());
     }
 }

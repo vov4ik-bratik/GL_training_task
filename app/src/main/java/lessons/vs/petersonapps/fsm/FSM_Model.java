@@ -8,7 +8,6 @@ public class FSM_Model {
 
     private boolean alarmArmed;
     private int lockedState;
-
     public FSM_Model() {
     }
 

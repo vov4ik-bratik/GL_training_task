@@ -10,6 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import lessons.vs.petersonapps.fsm.fsm.state.FSM;
 
 public class MainActivity extends AppCompatActivity
         implements MainMVPView {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        presenter = new Presenter(this, new FSM_Model());
+        presenter = new Presenter(this, new FSM());
         presenter.initialStart();
     }
 
@@ -57,85 +58,67 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLockResult(boolean alarmArmed, int lockState) {
-        setScreenFields(alarmArmed, lockState);
-
+    public void onStartApp(String state) {
+        setScreenFields(state);
     }
 
-    private void setScreenFields(boolean alarmArmed, int lockState) {
-        tvAlarmState.setText(getStringAlarmArmed(alarmArmed));
-        tvAlarmState.setBackgroundColor(alarmArmedColor(alarmArmed));
-        tvLockState.setText(getStringLockState(lockState));
+    @Override
+    public void onLockResult(String state) {
+        setScreenFields(state);
+    }
 
-        ivAlarmState.setImageResource(getResIDAlarmState(alarmArmed));
+    @Override
+    public void onUnLockResult(String state) {
+        setScreenFields(state);
+    }
+
+    @Override
+    public void onLockX2Result(String state) {
+        setScreenFields(state);
+    }
+
+    @Override
+    public void onUnLockX2Result(String state) {
+        setScreenFields(state);
+    }
+
+    private void setScreenFields(String state) {
+        String[] parts = state.split("_");
+        String alarmState = parts[0];
+        String lockState = parts[1];
+
+        tvAlarmState.setText(alarmState);
+        tvLockState.setText(lockState);
+
+        tvAlarmState.setBackgroundColor(alarmArmedColor(alarmState));
+
+        ivAlarmState.setImageResource(getResIDAlarmState(alarmState));
         ivLockState.setImageResource(getResIDLockState(lockState));
     }
 
-    @Override
-    public void onStart(boolean alarmArmed, int lockedState) {
-        setScreenFields(alarmArmed, lockedState);
-    }
-
-    @Override
-    public void onUnLockResult(boolean alarmArmed, int lockedState) {
-        setScreenFields(alarmArmed, lockedState);
-    }
-
-    @Override
-    public void onLockX2Result(boolean alarmArmed, int lockedState) {
-        setScreenFields(alarmArmed, lockedState);
-    }
-
-    @Override
-    public void onUnLockX2Result(boolean alarmArmed, int lockedState) {
-        setScreenFields(alarmArmed, lockedState);
-    }
-
-    private int getResIDLockState(int lockState) {
-        switch (lockState) {
-            case 1:
-                return R.drawable.ic_lock_open;
-            case 2:
-                return R.drawable.ic_driver_unlocked;
-            case 3:
-                return R.drawable.ic_lock;
-        }
-        return R.drawable.ic_close;
-    }
-
-    private int getResIDAlarmState(boolean alarmArmed) {
-        if (alarmArmed)
-            return R.drawable.ic_alarm_on;
-        else
-            return R.drawable.ic_alarm_off;
-    }
-
-    private int alarmArmedColor(boolean alarmArmed) {
-        if (alarmArmed)
+    private int alarmArmedColor(String alarmArmed) {
+        if (alarmArmed.equalsIgnoreCase("alarmarmed"))
             return Color.RED;
         else
             return Color.GREEN;
     }
 
-    private int getStringAlarmArmed(boolean alarmArmed) {
-
-        if (alarmArmed)
-            return R.string.alarm_armed;
+    private int getResIDAlarmState(String alarmArmed) {
+        if (alarmArmed.equalsIgnoreCase("alarmarmed"))
+            return R.drawable.ic_alarm_on;
         else
-            return R.string.alarm_disarmed;
-
+            return R.drawable.ic_alarm_off;
     }
 
-    public String getStringLockState(int lockState) {
-
+    private int getResIDLockState(String lockState) {
         switch (lockState) {
-            case 1:
-                return getString(R.string.all_unlocked);
-            case 2:
-                return getString(R.string.driver_unlocked);
-            case 3:
-                return getString(R.string.all_locked);
+            case "AllLocked":
+                return R.drawable.ic_lock;
+            case "DriverUnlocked":
+                return R.drawable.ic_driver_unlocked;
+            case "AllUnlocked":
+                return R.drawable.ic_lock_open;
         }
-        return "error, wrong lockState";
+        return R.drawable.ic_close;
     }
 }
